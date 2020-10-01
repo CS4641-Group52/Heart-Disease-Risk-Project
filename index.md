@@ -16,6 +16,7 @@ Our measure of success on this project will be the final accuracy and recall. Th
 ### References
 * Detrano R, Janosi A, Steinbrunn W, Pfisterer M, Schmid JJ, Sandhu S, Guppy KH, Lee S, Froelicher V. International application of a new probability algorithm for the diagnosis of coronary artery disease. Am J Cardiol. 1989 Aug 1;64(5):304-10. doi: 10.1016/0002-9149(89)90524-9. PMID: 2756873.
 * https://www.cdc.gov/heartdisease/facts.htm
-* https://www.sciencedirect.com/science/article/pii/S235291481830217X#:~:text=However%2C%20machine%20learning%20techniques%20can,Regression%20and%20Na%C3%AFve%20Bayes%20classifiers.
+* https://www.sciencedirect.com/science/article/pii/S235291481830217X#:~:text=However%2C%20machine%20learning%20techniques%20can,
+Regression%20and%20Na%C3%AFve%20Bayes%20classifiers.
 * https://archive.ics.uci.edu/ml/datasets/heart+disease
 * https://towardsdatascience.com/heart-disease-prediction-73468d630cfc
