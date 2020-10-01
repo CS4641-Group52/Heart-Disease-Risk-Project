@@ -1,1 +1,3 @@
 theme: jekyll-theme-slate
+title: Predicting Heart Disease Risk
+description: Predicting risk of heart disease from data collected from 4 different clinics around the world.
