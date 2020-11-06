@@ -45,33 +45,25 @@ We then created histograms and box plots for all continous features in the Kaggl
 
 As for the discrete features, we decided to mainly use bar graphs to visualize the data. For most important continous feature (correlation close to 1 or -1), we created both an overall bar graph of all occurances and a bar graph separated by the target value (where 0 represents no heart disease is present and 1 represents heart disease is present). These figures are displayed below.
 
-<center>
-<div class="div1">
-<img src="cp_bar.png" width="350">
-</div>
-<div class="div2">
-<img src="cpByTarget_bar.png" width="350">
+<p float="left">
+  <img src="cp_bar.png" width="350">
+  <img src="cpByTarget_bar.png" width="350">
+</p>
 
-<div class="div3">
-<img src="sex1_bar.png" width="350">
-</div>
-<div class="div4">
-<img src="sex_bar.png" width="350">
-</div>
+<p float="left">
+  <img src="sex1_bar.png" width="350">
+  <img src="sex_bar.png" width="350">
+</p>
 
-<div class="div1">
-<img src="ca_bar.png" width="350">
-</div>
-<div class="div2">
-<img src="caByTarget_bar.png" width="350">
+<p float="left">
+  <img src="ca_bar.png" width="350">
+  <img src="caByTarget_bar.png" width="350">
+</p>
 
-<div class="div3">
-<img src="exang_bar.png" width="350">
-</div>
-<div class="div4">
-<img src="exangByTartget_bar.png" width="350">
-</div>
-</center>
+<p float="left">
+  <img src="exang_bar.png" width="350">
+  <img src="exangByTartget_bar.png" width="350">
+</p>
 
 ### Methods
 For this project, we have found a data set with 75 attributes to train our models with. For the unsupervised portion of our project, we will use the k-means and DBSCAN algorithm to cluster our patients together under whether they have or do not have heart disease. We want to find the most important attributes that indicate the presence of heart disease for the patients in our data. For the supervised portion of our project, we plan to use a variety of machine learning techniques. In the past, the methods that have shown the most promise have been support vector machines (SVM), neural networks, decision trees, regression, and naive Bayes’ classifiers. We will be using classification for both of these. The UCI dataset we have been provided with has a goal attribute, which is a discrete number from zero (no presence) to 4 (almost certain presence). The goal for this model is to find trends within our data, and we hope these trends will allow us to find the groups most at risk of developing heart disease.
