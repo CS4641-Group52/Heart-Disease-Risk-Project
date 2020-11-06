@@ -13,14 +13,86 @@ Ultimately, we have four datasets to work with: the pre-processed dataset from K
 While there were originally 75 features, many of them were labelled by the uploader as "unusable" or simply had all, or mostly, null values. For some reason, all null values were represented by "-9" in the data set. Therefore, the first thing we did was replace all "-9" values with NaN (null). We did this by using pandas, an excellent library to cleaning data in Machine Learning. We then removed individual data-points if they had more than 2/3 of their features as null, since we were unlikely to gain much information from such a data point. For points with far fewer null values, we tried estimating their values. For discrete values, we found the mode for that feature to use as a replacement value. For continuous values, we used the mean. In the supervised portion of the project, we might employ more advanced techniques to generate missing values, such as K-Nearest Neighbors. Additionally, our dataset had many non-binary categorical features. Because all of the unsupervised clustering algorithms that we will be running for this project are distance-based, we used scikitlearn to One-Hot-Encode those features, as we didn't want more weight given to the higher categorical values.
 
 ### Data Exploration and Scaling
-With all of the data having been cleaned, we were ready to begin exploring the dataset. We started by creating a simple correlation heat-map, using Python's seaborn library. This visual would give us a good starting point in exploring the data, as it would tell us which features seem to be most strongly correlected with heart disease. The values closest to 1 and -1 in the last row and column of the table below are the parts to focus on.
+With all of the data having been cleaned, we were ready to begin exploring the dataset. We began by looking at the number of datapoints with a target value of 0 versus 1. The results of this are plotted below, with slighly more patients with a target value of 1 than 0. We then created a correlation heat-map using Python's seaborn library. This visual would give us a good starting point in exploring the data, as it would tell us which features seem to be most strongly correlected with heart disease. The values closest to 1 and -1 in the last row and column of the table below are the parts to focus on.
 
-**Insert Table**
+<div class="div1">
+<img src="target.png" width="350">
+</div>
+<div class="div2">
+<img src="heatmap_cor.png" width="450">
+</div>
 
 Initially, there did not appear to be any extremely strong correlation of any particular feature with heart-disease. Out of all the continuous features, "thalach," which represents the maximum heart-rate achieved by the patient, seemed to be most strongly correlalated with heart disease. Looking at the histogram below, we can see that plotting this feature gives a roughly normal distribution, which appears to be slighly normal. However, it does appear to be skewed left. In order to help visualize the correlation, we also created a scatter plot, and separated the data points by the target value. Clearly, the higher the maximum heart rate achieved, the more likely the target value is to be 1 (heart-disease present).
 
+<div class="div1">
+<img src="thalach_hist.png" width="300">
+</div>
+<div class="div2">
+<img src="thalach_box.png" width="300">
+</div>
+<div class="div3">
+<img src="thalach_scatter.png" width="300">
+</div>
+
+We then went on to create histograms and box plots for all continous features in the Kaggle pre-processed data-set, which are shown below. Most of the continuous features appear to be approximately normally distributed, which lead us to believe we should scale the data using sklearn's StandardScaler.
+
+<center>
+<div class="div1">
+<img src="age_box.png" width="230">
+</div>
+<div class="div2">
+<img src="chol_box.png" width="230">
+</div>
+<div class="div3">
+<img src="oldpeak_box.png" width="230">
+</div>
+<div class="div4">
+<img src="trestbps_box.png" width="230">
+</div>
+
+<div class="div1">
+<img src="ages_hist.png" width="300">
+</div>
+<div class="div2">
+<img src="chol_hist.png" width="300">
+</div>
+<div class="div4">
+<img src="trestbps_hist.png" width="300">
+</div>
+</center>
+
+As for the discrete features, we decided to mainly use bar graphs to visualize the data. For most important continous feature (correlation close to 1 or -1), we created both an overall bar graph of all occurances and a bar graph separated by the target value (where 0 represents no heart disease is present and 1 represents heart disease is present). These figures are displayed below.
+
+<center>
+<div class="div1">
+<img src="cp_bar.png" width="350">
+</div>
+<div class="div2">
+<img src="cpByTarget_bar.png" width="350">
+
+<div class="div3">
+<img src="sex1_bar.png" width="350">
+</div>
+<div class="div4">
+<img src="sex_bar.png" width="350">
+</div>
+
+<div class="div1">
+<img src="ca_bar.png" width="350">
+</div>
+<div class="div2">
+<img src="caByTarget_bar.png" width="350">
+
+<div class="div3">
+<img src="exang_bar.png" width="350">
+</div>
+<div class="div4">
+<img src="exangByTartget_bar.png" width="350">
+</div>
+</center>
+
 ### Methods
-For this project, we have found a data set with 75 attributes to train our models with. For the unsupervised portion of our project, we plan to use the k-means algorithm to cluster our patients together under whether they have or do not have heart disease. We want to find the most important attributes that indicate the presence of heart disease for the patients in our data. For the supervised portion of our project, we plan to use a variety of machine learning techniques. In the past, the methods that have shown the most promise have been support vector machines (SVM), neural networks, decision trees, regression, and naive Bayes’ classifiers. We will be using classification for both of these. The UCI dataset we have been provided with has a goal attribute, which is a discrete number from zero (no presence) to 4 (almost certain presence). The goal for this model is to find trends within our data, and we hope these trends will allow us to find the groups most at risk of developing heart disease.
+For this project, we have found a data set with 75 attributes to train our models with. For the unsupervised portion of our project, we will use the k-means and DBSCAN algorithm to cluster our patients together under whether they have or do not have heart disease. We want to find the most important attributes that indicate the presence of heart disease for the patients in our data. For the supervised portion of our project, we plan to use a variety of machine learning techniques. In the past, the methods that have shown the most promise have been support vector machines (SVM), neural networks, decision trees, regression, and naive Bayes’ classifiers. We will be using classification for both of these. The UCI dataset we have been provided with has a goal attribute, which is a discrete number from zero (no presence) to 4 (almost certain presence). The goal for this model is to find trends within our data, and we hope these trends will allow us to find the groups most at risk of developing heart disease.
 
 ### Results & Discussion
 Our measure of success on this project will be the final accuracy and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high accuracy so that our results can be successfully applied to a large population. As a group, we have decided that our goal is to achieve a prediction accuracy and recall of greater than 60% to 65%, and a recall. Previous studies have reported approximately 75% accuracy and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
