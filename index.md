@@ -15,12 +15,10 @@ While there were originally 75 features, many of them were labelled by the uploa
 ### Data Exploration and Scaling
 With all of the data having been cleaned, we were ready to begin exploring the dataset. We began by looking at the number of datapoints with a target value of 0 versus 1, no heart disease versus heart disease. The results of this are plotted below, with slightly more patients having a target value of 1. We then created a correlation heat-map using Python's seaborn library. This visual would give us a good starting point in exploring the data, as it would tell us which features seem to be most strongly correlected with heart disease. The values closest to 1 and -1 in the last row and column of the table below are the parts to focus on.
 
-<div class="div1">
-<img src="target.png" width="350">
-</div>
-<div class="div2">
-<img src="heatmap_cor.png" width="450">
-</div>
+<p float="left">
+  <img src="/target.png" width="350" />
+  <img src="/heatmap_cor.png" width="450" /> 
+</p>
 
 Initially, there did not appear to be any extremely strong correlation of any particular feature with heart-disease. Out of all the continuous features, "thalach," which represents the maximum heart-rate achieved by the patient, seemed to be most strongly correlalated with heart disease. Looking at the histogram below, we can see that plotting this feature gives a roughly normal distribution, which appears to be slighly normal. However, it does appear to be skewed left. In order to help visualize the correlation, we also created a scatter plot, and separated the data points by the target value. Clearly, the higher the maximum heart rate achieved, the more likely the target value is to be 1 (heart-disease present).
 
