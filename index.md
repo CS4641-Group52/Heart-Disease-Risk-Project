@@ -53,16 +53,18 @@ As for the discrete features, we decided to mainly use bar graphs to visualize t
 <p float="left">
   <img src="sex1_bar.png" width="350">
   <img src="sex_bar.png" width="350">
+  <img src="sex_bar_key.png" width="200">
 </p>
 
 <p float="left">
   <img src="ca_bar.png" width="350">
-  <img src="caByTarget_bar.png" width="350">
+  <img src="caByTarget_bar.png" width="450">
 </p>
 
 <p float="left">
   <img src="exang_bar.png" width="350">
   <img src="exangByTartget_bar.png" width="350">
+  <img src="exangByTartget_bar_key.png" width="200">
 </p>
 
 ### Methods
