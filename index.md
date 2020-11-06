@@ -84,7 +84,7 @@ Next, we decided to run the K-means algorithm to try clustering the data. In ord
 
 <img src="kmeans_elbow.png" width="350">
 
-After creating the **scree**(?) plot, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. As far as cluster purity is concerned, 2 clusters did the best, with 3 clusters performing only a bit worse. 4 Clusters did the worst. The overall cluster purity for 2, 3, and 4 clusters was 0.8152, 0.8119, and 0.7657 respectively. A summary figure is included below (might be good to make these numbers a table)
+After creating the plot, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. As far as cluster purity is concerned, 2 clusters did the best, with 3 clusters performing only a bit worse. 4 Clusters did the worst. The overall cluster purity for 2, 3, and 4 clusters was 0.8152, 0.8119, and 0.7657 respectively. A summary figure is included below (might be good to make these numbers a table)
 
 <img src="kMeans_pur.png" width="350">
 
@@ -101,5 +101,3 @@ Our measure of success on this project will be the final accuracy and recall. Th
 Regression%20and%20Na%C3%AFve%20Bayes%20classifiers.
 * https://archive.ics.uci.edu/ml/datasets/heart+disease
 * https://towardsdatascience.com/heart-disease-prediction-73468d630cfc
-
-Testing if these changes will save...
