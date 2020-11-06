@@ -94,6 +94,27 @@ As for the discrete features, we decided to mainly use bar graphs to visualize t
 ### Methods
 For this project, we have found a data set with 75 attributes to train our models with. For the unsupervised portion of our project, we will use the k-means and DBSCAN algorithm to cluster our patients together under whether they have or do not have heart disease. We want to find the most important attributes that indicate the presence of heart disease for the patients in our data. For the supervised portion of our project, we plan to use a variety of machine learning techniques. In the past, the methods that have shown the most promise have been support vector machines (SVM), neural networks, decision trees, regression, and naive Bayes’ classifiers. We will be using classification for both of these. The UCI dataset we have been provided with has a goal attribute, which is a discrete number from zero (no presence) to 4 (almost certain presence). The goal for this model is to find trends within our data, and we hope these trends will allow us to find the groups most at risk of developing heart disease.
 
+### PCA
+Getting into the unsupervised portion of this project, we decided to first run PCA on the scaled data-set to see if we would be able to reduce the dimentionality of our data set in any way. However, after running PCA, it became apparent that this was not likely. While the first principal component did contain a much larger percentage of the overall variance than any of the other components, the variance was not concentrated in the first principal component, which contained only about 20% of the overall variance. This is shown in the graph below. At best, we would be able to reduce the dimentionality from 14 to 10 and still would only retain about 90% of the variance.
+
+<img src="pcaVar_bar.png" width="350">
+
+We still tried plotting the first principal component against the second, and found what appeared to be a soft split of the target values, with values of 1 mostly on the left portion of the graph, and values of 0 mostly on the right portion of the graph. This lead us to believe that a form of soft SVM might yield good results in the supervised portion of this project. This visual also showed that our dataset would likely be able to form accurate clusters when running K-means. Overall, however, we did not gain too much insight from our data-set by running PCA. With that, we moved on the K-Means clustering.
+
+<img src="pca_1stv2nd_scatter.png" width="350">
+
+### K-Means Clustering
+Next, we decided to run the K-means algorithm to try clustering the data. In order to chose the best number of clusters, we made use of the elbow method (finish explaining)
+
+<img src="kmeans_elbow.png" width="350">
+
+After creating the scree plot, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. As far as cluster purity is concerned, 2 clusters did the best, with 3 clusters performing only a bit worse. 4 Clusters did the worst. The overall cluster purity for 2, 3, and 4 clusters was 0.8152, 0.8119, and 0.7657 respectively. A summary figure is included below
+
+<img src="kMeans_pur.png" width="350">
+
+Because the data-set includes the ground truth values, we were also able to calculate the precision, and recall for each of the 3 runs of K-means. Precision followed a similar trend to purity, with 2 clusters once again doing the best, 3 clusters doing slightly worse, and 4 clusters doing the worst. The precision was 0.7795, 0.7621, and 0.7176 respectively. However, the reacall 
+
+
 ### Results & Discussion
 Our measure of success on this project will be the final accuracy and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high accuracy so that our results can be successfully applied to a large population. As a group, we have decided that our goal is to achieve a prediction accuracy and recall of greater than 60% to 65%, and a recall. Previous studies have reported approximately 75% accuracy and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
 
