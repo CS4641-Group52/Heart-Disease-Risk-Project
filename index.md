@@ -80,17 +80,24 @@ We still tried plotting the first principal component against the second, and fo
 <img src="pca_1stv2nd_scatter.png" width="350">
 
 ### K-Means Clustering
-Next, we decided to run the K-means algorithm to try clustering the data. In order to chose the best number of clusters, we made use of the elbow method (finish explaining)
+Next, we decided to run the K-means algorithm to try clustering the data. We conducted K-means on both the original dataset, and the dataset after going through PCA. The elbow method was used to determine the number of clusters for the K-means algorithm, which estimates the improvement for the addition of each cluster. Below are the graphs for the elbow method.
 
 <img src="kmeans_elbow.png" width="350">
 
-After creating the plot, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. As far as cluster purity is concerned, 2 clusters did the best, with 3 clusters performing only a bit worse. 4 Clusters did the worst. The overall cluster purity for 2, 3, and 4 clusters was 0.8152, 0.8119, and 0.7657 respectively. A summary figure is included below (might be good to make these numbers a table)
 
-<img src="kMeans_pur.png" width="350">
+After creating the **scree**(?) plot, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. 
 
-Because the data-set includes the ground truth values, we were also able to calculate the precision, and recall for each of the 3 runs of K-means. Precision followed a similar trend to purity, with 2 clusters once again doing the best, 3 clusters doing slightly worse, and 4 clusters doing the worst. The precision was 0.7795, 0.7621, and 0.7176 respectively. However, the recall... 
+<img src="pcakmeanelbow.png" width="350">
 
-We also ran K-Means on our PCA data. Our results showed that the PCA K-Means performed comparatively to the K-means on the original data set. The PCA trained K-Means also had the lowest recall among all K-Means algorthims. 
+We felt that the elbow was clearer in the PCA elbow graph and therefore decided to do only 2 cluster for the PCA transformed data set.
+
+<img src="pcakmeansscatter.png" width="350">
+
+From the graph we see a semblance of a divide, but the differences between the clusters still isn't as clear as we would like it to be, however we think that this K-means classification can strengthen our supervised learning algorithms later down the line if we use the K-means classifiers as a feature.
+
+<img src="kmeanstable.png" width="800">
+
+Looking at the stats we see that each n-clustering performed relatively well. However, no clustering was dominate in all 3 metrics. Which we found surprising because we thought that as the number of clusters increases, we would see the model overfit the dataset a bit more, but 4 clustering performed the worst in 2/3 metrics. Overall, the 2, 3, and PCA clustering performed the best. All being comparable in all 3 metrics with differences of about .01. The only exception to this being 3 cluster’s recall at about .95, which could be a symptom of overfitting. 
 ### Results & Discussion
 Our measure of success on this project will be the final accuracy and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high accuracy so that our results can be successfully applied to a large population. As a group, we have decided that our goal is to achieve a prediction accuracy and recall of greater than 60% to 65%, and a higher recall. Previous studies have reported approximately 75% accuracy and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
 
