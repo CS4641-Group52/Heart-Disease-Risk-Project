@@ -93,13 +93,13 @@ Next, we decided to run the K-means algorithm to try clustering the data. We con
   <img src="pcakmeanelbow.png" width="350">
 </p>
 
-After creating the plot with the original dataset, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. The visualization scatter plots for 2 clusters, 4 clusters, and the PCA data are all shown below. The elbow in the PCA transformed dataset was clearer than the elbow found with the original dataset. Therefore, we decided to run k-means with only 2 cluster for the PCA transformed data set.
+After creating the plot with the original dataset, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. The visualization scatter plots for 2 clusters, 4 clusters, and the PCA data are all shown below. The elbow in the PCA transformed dataset was clearer than the elbow found with the original dataset. Therefore, we decided to run k-means with only 2 cluster for the PCA transformed data set. Note that the values we used in K-means were scaled using StandardScaler, which is why the x-axis ranges from -3 to 3 for the "age" feature.
 
 <p align="center">
   <img src="kmeans_groundTruth.png" width="350">
   <img src="kmeans_scatter.png" width="350">
   <img src="kmeans4_scatter.png" width="350">
-  <img src="pcakmeansscatter.png" width="350">
+  <img src="kmeansPCA_scatter.png" width="350">
 </p>
 
 
