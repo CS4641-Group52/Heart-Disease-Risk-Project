@@ -77,7 +77,7 @@ Getting into the unsupervised portion of this project, we decided to first run P
 
 We still attempted plotting the first principal component against the second, and found what appeared to be a soft split of the target values, with values of 1 mostly on the left portion of the graph, and values of 0 mostly on the right portion of the graph. This lead us to believe that a form of soft SVM might yield good results in the supervised portion of this project. This visual also showed that our dataset would likely be able to form accurate clusters when running K-means. Overall, however, we did not gain too much insight from our data-set by running PCA. With that, we moved on the K-Means clustering.
 
-<img src="pca_1stv2nd_scatter.png" width="350">
+<img src="kmeansPCA_groundTruth.png" width="350">
 
 ### K-Means Clustering
 Next, we decided to run the K-means algorithm to try clustering the data. We conducted K-means on both the original dataset, and the dataset after going through PCA. The elbow method was used to determine the number of clusters for the K-means algorithm, which estimates the improvement for the addition of each cluster. Below are the graphs for the elbow method.
@@ -87,9 +87,15 @@ Next, we decided to run the K-means algorithm to try clustering the data. We con
   <img src="pcakmeanelbow.png" width="350">
 </p>
 
-After creating the plot with the original dataset, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. The elbow in the PCA transformed dataset was clearer than the elbow found with the original dataset. Therefore, we decided to run k-means with only 2 cluster for the PCA transformed data set.
+After creating the plot with the original dataset, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. The visualization scatter plots for 2 clusters, 4 clusters, and the PCA data are all shown below. The elbow in the PCA transformed dataset was clearer than the elbow found with the original dataset. Therefore, we decided to run k-means with only 2 cluster for the PCA transformed data set.
 
-<img src="pcakmeansscatter.png" width="350">
+<p float="left">
+  <img src="kmeans_groundTruth.png" width="350">
+  <img src="kmeans_scatter.png" width="350">
+  <img src="kmeans4_scatter.png" width="350">
+  <img src="pcakmeansscatter.png" width="350">
+</p>
+
 
 From the graph we see a semblance of a divide, but the differences between the clusters still isn't as clear as we would like it to be, however we think that this K-means classification can strengthen our supervised learning algorithms later down the line if we use the K-means classifiers as a feature.
 
