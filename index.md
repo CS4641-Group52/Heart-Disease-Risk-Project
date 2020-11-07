@@ -1,7 +1,7 @@
 ## Project Proposal
 ### Infographic
 <p align="center">
-  <img src="/infographic.png" />
+  <img src="infographic.png" />
 </p>
 
 ### Motivation & Background
@@ -18,24 +18,24 @@ While there were originally 75 features, many of them were labelled by the uploa
 With all of the data having been cleaned, we were ready to begin exploring the dataset. We began by looking at the number of datapoints with a target value of 0 versus 1, no heart disease versus heart disease. The results of this are plotted below, with slightly more patients having a target value of 1. We then created a correlation heat-map using Python's seaborn library. This visual would give us a good starting point in exploring the data, as it would tell us which features seem strongly correlated with heart disease. The values closest to 1 and -1 indicate strong positve and negative correlation respectively. Indicating a relationship between two variables. The last row or last column is our ground truth so variables with a strong relationship in that row should have a strong ability to predict heart disease.
 
 <p align="center">
-  <img src="/target.png" width="350" />
-  <img src="/heatmap_cor.png" width="450" /> 
+  <img src="target.png" width="350" />
+  <img src="heatmap_cor.png" width="450" /> 
 </p>
 
 Initially, there did not appear to be any extremely strong correlation of any particular feature with heart-disease. Out of all the continuous features, "thalach," which represents the maximum heart-rate achieved by the patient, seemed to be most strongly correlated with heart disease. Looking at the histogram below, we can see that plotting this feature gives a roughly normal distribution, which appears to be slighly normal. However, it does appear to be skewed left. In order to help visualize the correlation, we also created a scatter plot, and separated the data points by the target value. Clearly, the higher the maximum heart rate achieved, the more likely the target value is to be 1 (heart-disease present).
 
 <p align="center">
-  <img src="/thalach_hist.png" width="300" />
-  <img src="/thalach_box.png" width="300" /> 
-  <img src="/thalach_scatter.png" width="300" />
+  <img src="thalach_hist.png" width="300" />
+  <img src="thalach_box.png" width="300" /> 
+  <img src="thalach_scatter.png" width="300" />
 </p>
 
 We then created histograms and box plots for all continous features in the Kaggle pre-processed data-set, which are shown below. Most of the continuous features appear to be approximately normally distributed, which lead us to believe we should scale the data using sklearn's StandardScaler.
 
 <p align="center">
-  <img src="/age_box.png" width="230" />
-  <img src="/chol_box.png" width="230" /> 
-  <img src="/oldpeak_box.png" width="230" />
+  <img src="age_box.png" width="230" />
+  <img src="chol_box.png" width="230" /> 
+  <img src="oldpeak_box.png" width="230" />
   <img src="trestbps_box.png" width="230" />
 </p>
 
