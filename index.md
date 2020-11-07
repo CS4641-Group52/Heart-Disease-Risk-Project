@@ -1,6 +1,8 @@
 ## Project Proposal
 ### Infographic
-![infographic](infographic.png)
+<p align="center">
+  <img src="/infographic.png" />
+</p>
 
 ### Motivation & Background
 Today, heart disease is the leading cause of death around the globe. In the United States alone, heart disease claims the life of one person every 36 seconds. Annually, it is responsible for the deaths of roughly 655,000 Americans which equates to 1 in every 4 deaths. To make matters worse, it costs our country about $219 billion per year due to healthcare service costs, medical costs, and lost productivity costs. Our group understands the impact this disease can have on so many individuals. Because of this, we decided to carry out our machine learning project on the prediction of heart disease.
@@ -15,14 +17,14 @@ While there were originally 75 features, many of them were labelled by the uploa
 ### Data Exploration and Scaling
 With all of the data having been cleaned, we were ready to begin exploring the dataset. We began by looking at the number of datapoints with a target value of 0 versus 1, no heart disease versus heart disease. The results of this are plotted below, with slightly more patients having a target value of 1. We then created a correlation heat-map using Python's seaborn library. This visual would give us a good starting point in exploring the data, as it would tell us which features seem strongly correlated with heart disease. The values closest to 1 and -1 indicate strong positve and negative correlation respectively. Indicating a relationship between two variables. The last row or last column is our ground truth so variables with a strong relationship in that row should have a strong ability to predict heart disease.
 
-<p float="left">
+<p align="center">
   <img src="/target.png" width="350" />
   <img src="/heatmap_cor.png" width="450" /> 
 </p>
 
 Initially, there did not appear to be any extremely strong correlation of any particular feature with heart-disease. Out of all the continuous features, "thalach," which represents the maximum heart-rate achieved by the patient, seemed to be most strongly correlated with heart disease. Looking at the histogram below, we can see that plotting this feature gives a roughly normal distribution, which appears to be slighly normal. However, it does appear to be skewed left. In order to help visualize the correlation, we also created a scatter plot, and separated the data points by the target value. Clearly, the higher the maximum heart rate achieved, the more likely the target value is to be 1 (heart-disease present).
 
-<p float="left">
+<p align="center">
   <img src="/thalach_hist.png" width="300" />
   <img src="/thalach_box.png" width="300" /> 
   <img src="/thalach_scatter.png" width="300" />
@@ -30,14 +32,14 @@ Initially, there did not appear to be any extremely strong correlation of any pa
 
 We then created histograms and box plots for all continous features in the Kaggle pre-processed data-set, which are shown below. Most of the continuous features appear to be approximately normally distributed, which lead us to believe we should scale the data using sklearn's StandardScaler.
 
-<p float="left">
+<p align="center">
   <img src="/age_box.png" width="230" />
   <img src="/chol_box.png" width="230" /> 
   <img src="/oldpeak_box.png" width="230" />
-  <img src="trestbps_box.png" width="230">
+  <img src="trestbps_box.png" width="230" />
 </p>
 
-<p float="left">
+<p align="center">
   <img src="ages_hist.png" width="300">
   <img src="chol_hist.png" width="300">
   <img src="trestbps_hist.png" width="300">
@@ -45,23 +47,23 @@ We then created histograms and box plots for all continous features in the Kaggl
 
 As for the discrete features, we decided to mainly use bar graphs to visualize the data. For most important continous feature (correlation close to 1 or -1), we created both an overall bar graph of all occurances and a bar graph separated by the target value (where 0 represents absence of heart disease and 1 represents presence of heart disease). These figures are displayed below.
 
-<p float="left">
+<p align="center">
   <img src="cp_bar.png" width="350">
   <img src="cpByTarget_bar.png" width="350">
 </p>
 
-<p float="left">
+<p align="center">
   <img src="sex1_bar.png" width="350">
   <img src="sex_bar.png" width="350">
   <img src="sex_bar_key.png" width="200">
 </p>
 
-<p float="left">
+<p align="center">
   <img src="ca_bar.png" width="350">
   <img src="caByTarget_bar.png" width="450">
 </p>
 
-<p float="left">
+<p align="center">
   <img src="exang_bar.png" width="350">
   <img src="exangByTartget_bar.png" width="350">
   <img src="exangByTartget_bar_key.png" width="200">
@@ -73,23 +75,27 @@ For the unsupervised portion of our project, we will use the k-means and DBSCAN 
 ### PCA
 Getting into the unsupervised portion of this project, we decided to first run PCA on the scaled data-set to see if we would be able to reduce the dimentionality in any way. However, after running PCA, it became apparent that this was unlikely. While the first principal component did contain a much larger percentage of the overall variance than any other component, the variance was not concentrated there, it contained only about 20% of the overall variance, shown in the graph below. At best, we would be able to reduce the dimentionality from 14 to 10 and would still only retain about 90% of the variance.
 
-<img src="pcaVar_bar.png" width="350">
+<p align="center">
+  <img src="pcaVar_bar.png" width="350">
+</p>
 
 We still attempted plotting the first principal component against the second, and found what appeared to be a soft split of the target values, with values of 1 mostly on the left portion of the graph, and values of 0 mostly on the right portion of the graph. This lead us to believe that a form of soft SVM might yield good results in the supervised portion of this project. This visual also showed that our dataset would likely be able to form accurate clusters when running K-means. Overall, however, we did not gain too much insight from our data-set by running PCA. With that, we moved on the K-Means clustering.
 
-<img src="kmeansPCA_groundTruth.png" width="350">
+<p align="center">
+  <img src="kmeansPCA_groundTruth.png" width="350">
+</p>
 
 ### K-Means Clustering
 Next, we decided to run the K-means algorithm to try clustering the data. We conducted K-means on both the original dataset, and the dataset after going through PCA. The elbow method was used to determine the number of clusters for the K-means algorithm, which estimates the improvement for the addition of each cluster. Below are the graphs for the elbow method.
 
-<p float="left">
+<p align="center">
   <img src="kmeans_elbow.png" width="350">
   <img src="pcakmeanelbow.png" width="350">
 </p>
 
 After creating the plot with the original dataset, there did not appear to be any clearly discernable elbow. It was plausible, however, that the elbow was in the range of 2 to 4 clusters. Therefore, we ran K-Means with 2, 3, and 4 clusters, and compared the results. The visualization scatter plots for 2 clusters, 4 clusters, and the PCA data are all shown below. The elbow in the PCA transformed dataset was clearer than the elbow found with the original dataset. Therefore, we decided to run k-means with only 2 cluster for the PCA transformed data set.
 
-<p float="left">
+<p align="center">
   <img src="kmeans_groundTruth.png" width="350">
   <img src="kmeans_scatter.png" width="350">
   <img src="kmeans4_scatter.png" width="350">
@@ -99,7 +105,9 @@ After creating the plot with the original dataset, there did not appear to be an
 
 From the graph we see a semblance of a divide, but the differences between the clusters still isn't as clear as we would like it to be, however we think that this K-means classification can strengthen our supervised learning algorithms later down the line if we use the K-means classifiers as a feature.
 
-<img src="kmeanstable.png" width="800">
+<p align="center">
+  <img src="kmeanstable.png" width="800">
+</p>
 
 Looking at the stats we see that each n-clusters performed relatively well. However, no clustering was dominate in all 3 metrics. Which we found surprising because we believed that as the number of clusters increases, we would see the model overfit the dataset a bit more, but 4 clusters performed the worst in 2/3 metrics. Overall, the 2, 3, and PCA clusters performed the best. All being comparable in all 3 metrics with differences of about .01. The only exception to this being 3 clusters’s recall at about .95, which could be a symptom of overfitting. 
 ### Results & Discussion
