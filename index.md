@@ -144,12 +144,16 @@ Each data set utilized in the supervised learning part of this project had its f
 #### Decision Trees & Random Forests
 Decision tree learning showed promise as one of our targeted supervised learning algorithms due to the many features of our data sets. We believed that this supervised learning algorithm would provide a solid base for prediction, and potentially help determine the most important features in our data sets. The decision tree we made was able to predict results with high success, comparable to previous studies. 
 
+>Decision Tree: Kaggle Data Set
+
 <p align="center">
   <img src="kaggle_decision_tree.png" width="550">
   <img src="kaggle_decision_tree_diagnostics.png" width="350">
 </p>
 
 While, we determined that using a decision tree to classify whether someone has heart disease is an effective method, we also wanted to check if creating a random forest and bootrap aggregating (bagging) would be more effective, as we had learned in lecture. To preserve consistency between the decision tree and random forest, the same train and test split on the kaggle data set was used. Using the random forest algorithm and bagging did increase the precision and recall compared to the single decision tree, as we had hypothesized.
+
+>Random Forest Diagnostics: Kaggle Data Set
 
 <p align="center">
   <img src="kaggle_forest_diagnostics.png" width="350">
