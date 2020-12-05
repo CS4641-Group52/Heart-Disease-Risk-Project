@@ -131,7 +131,9 @@ DBSCAN achieved an overall purity of 0.7558, precision of 0.847, and recall of 0
 
 ### Supervised Learning
 
-With many Unsupervised algorithms under our belt, we know decided that it was time to move onto the Supervised portion of this project. This is where we expected the most promising results, as many of the research papers we had read during the project proposal stage had used Supervised strategies. For this section of the project, our plan was to try a number of different algorithms. In particular, we planned on using SVM, Logistic Regression, Neural Networks, and Decision Trees/Random Forests. For consistency, we will run these algorithms on the Kaggle dataset that we used in the Unsupervised portion of the project.
+With many unsupervised algorithms under our belt, we decided to begin the supervised portion of this project. This is where we expected the most promising results, as many of the research papers we read during the project proposal stage used supervised learning strategies. For this section of the project, our plan was to try a number of different algorithms. In particular, we planned on using SVM, Logistic Regression, Neural Networks, and Decision Trees/Random Forests. For consistency, we will run these algorithms on the Kaggle dataset that we used in the unsupervised learning portion of the project. 
+We also ran each supervised learning algorithm detailed above on the Hungary data set, one of the UCI data sets referenced by the authors of the kaggle data set. However, with our unfortunate lack of knowledge on how the kaggle authors pruned their data set and chose their specific features, the Hungary data set retains more of its features when we implement the supervised learning algorithms on it. Thus, there is a higher chance for lower precision and recall, due to the amount of potentially useless features considered during each algorithm.
+Each data set utilized in the supervised learning part of this project had its feature values scaled using the sklearn StandardScaler. The kaggle data set was also One-Hot Encoded on features that required it, with the Hungary data set not receiving this treatment due to the uncertainty of which features required it.
 
 #### SVM
 
@@ -140,6 +142,20 @@ With many Unsupervised algorithms under our belt, we know decided that it was ti
 #### Logistic Regression
 
 #### Decision Trees & Random Forests
+Decision tree learning showed promise as one of our targeted supervised learning algorithms due to the many features of our data sets. We believed that this supervised learning algorithm would provide a solid base for prediction, and potentially help determine the most important features in our data sets. The decision tree we made was able to predict results with high success, comparable to previous studies. 
+
+<p align="center">
+  <img src="kaggle_decision_tree.png" width="550">
+  <img src="kaggle_decision_tree_diagnostics.png" width="350">
+</p>
+
+While, we determined that using a decision tree to classify whether someone has heart disease is an effective method, we also wanted to check if creating a random forest and bootrap aggregating (bagging) would be more effective, as we had learned in lecture. To preserve consistency between the decision tree and random forest, the same train and test split on the kaggle data set was used. Using the random forest algorithm and bagging did increase the precision and recall compared to the single decision tree, as we had hypothesized.
+
+<p align="center">
+  <img src="kaggle_forest_diagnostics.png" width="350">
+</p>
+
+The...
 
 ### Results
 Our measure of success on this project will be the purity of clusters (only for unsupervised learning), as well as precision and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high precision, as false positive results could give people an unecessary scare and introduce much stress. As a group, we have decided that our goal is to achieve a prediction precision and recall of greater than 60% to 65%, and purity of at least 75% for the clusters in our unsupervised algorithms. Previous studies have reported approximately 75% purity and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
