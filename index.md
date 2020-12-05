@@ -156,17 +156,18 @@ While, we determined that using a decision tree to classify whether someone has 
 </p>
 
 The Hungary data set unfortunately did not show similar precision and recall for each classifier when the decision tree learning and random forest algorithms were run on it. This discrepancy between the two data sets used is likely due to not determining which features to one-hot encode and not understanding the data pruning the kaggle authors completed. However, despite the lower precision and recall scores for specific classifiers, the average scores stay consistent with the findings from previous studies. Although, this is more likely due to the fact that the classifier with very good diagnostic scores is a much larger portion of the Hungary data set than the poorly scoring classifier.
-Decision Tree: Hungary Data Set
+
+>Decision Tree: Hungary Data Set
 
 <p align="center">
   <img src="hungary_tree.png" width="550">
   <img src="hungary_tree_diagnostics.png" width="350">
 </p>
 
-Random Forest Diagnostics: Hungary Data Set
+>Random Forest Diagnostics: Hungary Data Set
 
 <p align="center">
-  <img src="hungary_forest_diagnostics.png" width="350">
+  <img src="hungary_forest_diagnotics.png" width="350">
 </p>
 
 ### Results
