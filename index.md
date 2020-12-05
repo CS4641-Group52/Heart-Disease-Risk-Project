@@ -129,6 +129,18 @@ Here, we use the Elbow Method to approximate a good value for espilon in DBSCAN.
 
 DBSCAN achieved an overall purity of 0.7558, precision of 0.847, and recall of 0.6727. The purity of the clusters formed was relatively average compared to K-means in this scenario. However, a precision of 0.847 was the highest we have achieved with our unsupervised learning algorithms. This means there were very few false positives. While this is significant, recall is more important for us, as an incorrect prediction could prove to be deadly. Unforunately, the recall with DBSCAN was the worst out of all the unsupervised algorithms performed. This could possibly be due to different densities within an apparent cluster. Under these conditions, DBSCAN did not perform well. Thus, K-means seems to be the better unsupervised clustering algorithm to use when predicting heart disease.
 
+### Supervised Learning
+
+With many Unsupervised algorithms under our belt, we know decided that it was time to move onto the Supervised portion of this project. This is where we expected the most promising results, as many of the research papers we had read during the project proposal stage had used Supervised strategies. For this section of the project, our plan was to try a number of different algorithms. In particular, we planned on using SVM, Logistic Regression, Neural Networks, and Decision Trees/Random Forests. For consistency, we will run these algorithms on the Kaggle dataset that we used in the Unsupervised portion of the project.
+
+#### SVM
+
+#### Neural Networks
+
+#### Logistic Regression
+
+#### Decision Trees & Random Forests
+
 ### Results
 Our measure of success on this project will be the purity of clusters (only for unsupervised learning), as well as precision and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high precision, as false positive results could give people an unecessary scare and introduce much stress. As a group, we have decided that our goal is to achieve a prediction precision and recall of greater than 60% to 65%, and purity of at least 75% for the clusters in our unsupervised algorithms. Previous studies have reported approximately 75% purity and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
 
