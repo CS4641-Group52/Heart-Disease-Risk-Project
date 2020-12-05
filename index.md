@@ -155,7 +155,19 @@ While, we determined that using a decision tree to classify whether someone has 
   <img src="kaggle_forest_diagnostics.png" width="350">
 </p>
 
-The...
+The Hungary data set unfortunately did not show similar precision and recall for each classifier when the decision tree learning and random forest algorithms were run on it. This discrepancy between the two data sets used is likely due to not determining which features to one-hot encode and not understanding the data pruning the kaggle authors completed. However, despite the lower precision and recall scores for specific classifiers, the average scores stay consistent with the findings from previous studies. Although, this is more likely due to the fact that the classifier with very good diagnostic scores is a much larger portion of the Hungary data set than the poorly scoring classifier.
+Decision Tree: Hungary Data Set
+
+<p align="center">
+  <img src="hungary_tree.png" width="550">
+  <img src="hungary_tree_diagnostics.png" width="350">
+</p>
+
+Random Forest Diagnostics: Hungary Data Set
+
+<p align="center">
+  <img src="hungary_forest_diagnostics.png" width="350">
+</p>
 
 ### Results
 Our measure of success on this project will be the purity of clusters (only for unsupervised learning), as well as precision and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high precision, as false positive results could give people an unecessary scare and introduce much stress. As a group, we have decided that our goal is to achieve a prediction precision and recall of greater than 60% to 65%, and purity of at least 75% for the clusters in our unsupervised algorithms. Previous studies have reported approximately 75% purity and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
