@@ -173,6 +173,7 @@ With the Hungarian dataset we built a similar model, but this in this dataset we
 <p align="center">
   <img src="HungNN.png">
 </p>
+
 #### Logistic Regression & Stochastic Gradient Descent Classifier
 We decided to try out Logistic Regression and a Stochastic Gradient Descent (SGD) Classifier to use as a binary classifier. We originally also wanted to try out Linear Regression, but it simply did not work well as a binary classifier. The performance in early testing was unsatisfactory even after we rounded the results to either 0 or 1.
 
