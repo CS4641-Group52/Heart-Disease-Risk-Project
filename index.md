@@ -162,7 +162,7 @@ We felt like given the number of features in our data and how a Neural Net creat
   <img src="KaggleNNclassrep.png">
 </p>
 
-The range we saw made it a little difficult to get a great read on how the model was performing. So, we built the model 200 with a for loop to try to get an average accuracy for our model. After building the model this way we saw it performed with about an 80% accuracy overall for the Kaggle dataset.
+The range we saw made it a little difficult to get a great read on how the model was performing. So, we built the model 200 times to get an average accuracy for our model. After building the model this way we saw it performed with about an 80% accuracy overall for the Kaggle dataset.
 
 <p align="center">
   <img src="KaggleNN.png">
