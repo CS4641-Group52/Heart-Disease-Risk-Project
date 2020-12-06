@@ -207,6 +207,7 @@ Decision tree learning showed promise as one of our targeted supervised learning
 
 <p align="center">
   <img src="kaggle_decision_tree.png" width="550">
+  
   <img src="kaggle_decision_tree_diagnostics.png" width="350">
 </p>
 
@@ -225,6 +226,7 @@ The Hungary data set unfortunately did not show similar precision and recall for
 
 <p align="center">
   <img src="hungary_tree.png" width="550">
+  
   <img src="hungary_tree_diagnostics.png" width="350">
 </p>
 
