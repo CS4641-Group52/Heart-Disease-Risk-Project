@@ -142,7 +142,7 @@ We felt like given the number of features in our data and how a Neural Net creat
 
 The range we saw made it a little difficult to get a great read on how the model was performing. So, we built the model 200 with a for loop to try to get an average accuracy for our model. After building the model this way we saw it performed with about an 80% accuracy overall for the Kaggle dataset.
 
-With the Hungarian dataset we built a similar model, but this in this dataset we had 32 features instead of 27 so we adjusted our hidden layer size to stay consistent with the earlier model’s building criteria. We also ran the model with the for loop to get a better reading on our accuracy. The model performed a little worse for the Hungarian dataset than the Kaggle dataset with an accuracy of only 79%.
+With the Hungarian dataset we built a similar model, but this in this dataset we had 32 features instead of 27 so we adjusted our hidden layer size to stay consistent with the earlier model’s building criteria. We also ran the model with the for loop to get a better reading on our accuracy. The model performed similarly to the Kaggle model also being at 80% accuracy.
 
 #### Logistic Regression & Stochastic Gradient Descent Classifier
 We decided to try out Logistic Regression and a Stochastic Gradient Descent (SGD) Classifier to use as a binary classifier. We originally also wanted to try out Linear Regression, but it simply did not work well as a binary classifier. The performance in early testing was unsatisfactory even after we rounded the results to either 0 or 1.
