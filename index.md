@@ -239,7 +239,12 @@ Our measure of success on this project will be the purity of clusters (only for 
 
 We can say that we more than acheived the results we strove for at the start of this project, as we reported greater precision, purity, and recall than we originally predicted. It can also be shown that these types of models would be beneficial to medical personel, such as doctors and nurses, helping them reach a quick, highly reliable diagnosis on such an important health risk to many people. This project proves the usefulness of machine learning in health care and can be expanded upon with the input of doctors to further increase the chances of alerting those at risk earlier than previously. 
 
-To improve this project and projects like it in the future, we suggest...
+While we achieved relatively good results using the many different supervised and unsupervised learning methods, there are some aspects of our project we would like to change in future work. First, we would have liked to make better use of the other 3 original datasets provided by the UCI author. Unfortunately, each of the 3 original datasets were all significantly different from one another. This made it difficult to utilize all the original datasets. Ideally, in future work, we would like to find a larger, more comprehensive dataset to test our models on.
+
+Next, we believe we could have encoded the target values in the Hungary dataset in a better way when using it in the supervised portion of the project. As mentioned previously, the target values in the Hungary dataset was recorded in a different way than in the Kaggle dataset. While the Kaggle dataset had simple binary values indicating the presence of heart-disease, the Hungary dataset used a likelihood scale of the presence of heart-disease, ranging from 0-3. To maintain consistency, we simply changed all values greater than 0 to 1. However, this created an unbalanced dataset and resulted in lower accuracy, precision, and f-1 scores than the Kaggle dataset. This would be something we would like to improve on in future work.
+
+Finally, we would like to try Naïve Bayes’ classification on the Kaggle dataset. In some of the research papers read during the project proposal stage, authors mentioned that Naïve Bayes’ classifiers produced relatively accurate results. While we do not believe we would have achieved better results than SVM with this supervised method, it would be worthwhile to look into it in future work.
+
 
 ### References
 * Detrano R, Janosi A, Steinbrunn W, Pfisterer M, Schmid JJ, Sandhu S, Guppy KH, Lee S, Froelicher V. International application of a new probability algorithm for the diagnosis of coronary artery disease. Am J Cardiol. 1989 Aug 1;64(5):304-10. doi: 10.1016/0002-9149(89)90524-9. PMID: 2756873.
