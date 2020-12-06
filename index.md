@@ -131,13 +131,15 @@ DBSCAN achieved an overall purity of 0.7558, precision of 0.847, and recall of 0
 
 ### Supervised Learning
 
-With many unsupervised algorithms under our belt, we decided to begin the supervised portion of this project. This is where we expected the most promising results, as many of the research papers we read during the project proposal stage used supervised learning strategies. For this section of the project, our plan was to try a number of different algorithms. In particular, we planned on using SVM, Logistic Regression, Neural Networks, and Decision Trees/Random Forests. For consistency, we chose to run these algorithms on the Kaggle dataset that we used in the unsupervised learning portion of the project. 
-We also ran each supervised learning algorithm detailed above on the Hungary data set, one of the UCI data sets referenced by the authors of the Kaggle data set. However, with our unfortunate lack of knowledge on how the kaggle authors pruned their data set and chose their specific features, the Hungary data set retains more of its features when we implement the supervised learning algorithms on it. Thus, there is a higher chance for lower precision and recall, due to the amount of potentially useless features considered and higher number of null values during each algorithm.
-Each data set utilized in the supervised learning portion of this project had its feature values scaled using the sklearn StandardScaler. The Kaggle data set was also One-Hot Encoded on features that required it, with the Hungary data set not receiving this treatment due to the uncertainty of which features required it.
+With many unsupervised algorithms under our belt, we decided to begin the supervised portion of this project. This is where we expected the most promising results, as many of the research papers we read during the project proposal stage used supervised learning strategies. For this section of the project, our plan was to try a number of different algorithms. In particular, we planned on using SVM, Logistic Regression, Neural Networks, and Decision Trees/Random Forests. For consistency, we will run these algorithms on the Kaggle dataset that we used in the unsupervised learning portion of the project. 
+
+We also ran each supervised learning algorithm detailed above on the Hungary data set, one of the UCI data sets referenced by the authors of the kaggle data set. However, with our unfortunate lack of knowledge on how the kaggle authors pruned their data set and chose their specific features, the Hungary data set retains more of its features when we implement the supervised learning algorithms on it. Thus, there is a higher chance for lower precision and recall, due to the amount of potentially useless features considered during each algorithm.
+
+Each data set utilized in the supervised learning part of this project had its feature values scaled using the sklearn StandardScaler. The kaggle data set was also One-Hot Encoded on features that required it, with the Hungary data set not receiving this treatment due to the uncertainty of which features required it.
 
 #### SVM
 
-SVM or support vector machines was the algorithm we expected to show the best results, as similar projects discussed in research papers had the best results with it. Similarly, our PCA results from the unsupervised portion of the project led us to believe SVM would provide us with good and accurate results. We started by splitting our dataset into a testing and training set. For this supervised method, we decided to do a 50-50 split. That is, 50% of the data went into the training dataset and the other 50% went into the testing set. After we split the data, we were ready to run SVM.
+SVM or support vector machines was the algorithm we expected to show the best results, as similar projects discussed in research papers obtained their best results with it. We started by splitting our dataset into a testing and training set. For this supervised method, we decided to do a 50-50 split. That is, 50% of the data went into the training dataset and the other 50% went into the testing set. After we split the data, we were ready to run SVM.
 
 We started by running SVM by just using the default parameters, which surprisingly gave us good results. On average, we achieved an accuracy of roughly 70%-80%. In order to find the optimal parameters for SVM, we employed GridSearchCV by using nested for-loops with each relevant parameter to tune. We ran GridSearchCV a couple of times and got varying results. In other words, there was not one definitive collection of settings that always appeared to produce the best results. One example of optimal settings are as follows: a sigmoid kernel with a C value of 1, degree of 3, coefficient of 1.001, and a gamma value set to “auto”. For reference, the C value is the regularization parameter, the degree is the degree of the polynomial kernel function (if applicable but not in this case due to the type of kernel used), gamma is the kernel coefficient for “rbf” (not applicable with these settings), and the coefficient is the independent term in the kernel function. Once we tuned the parameters, our accuracy increased from roughly 70%-80% to 80%-90%. As an example, refer to the graphs below. The graph on the left represents the ground truth values, while the graph on the right represents a single run of SVM that attained an accuracy of 88.16%. We also provide a confusion matrix and the classification report from a run below, which provides us with relevant metrics. The high average values in all categories of the classification report below indicates that our model did not have many false positives and negatives. Overall, this is a relatively accurate model for predicting whether a person has heart disease or not.
 
@@ -158,19 +160,20 @@ We used the same method as before to tune the parameters and achieved a similar 
 Overall, SVM was a successful supervised algorithm in predicting heart disease. Accuracy, precision, and recall using this method were all exceptionally good. The promising results from this section indicate that the Kaggle dataset has a clear divide after employing a certain kernel function (which artificially increases the dimentionality). We expect other promising results from the remainder of the supervised algorithms we plan on using.
 
 #### Neural Networks
-Given the number of features in our data and how a Neural Net creates weights between features and nodes to find the nuance of the relationships between features and outputs, we felt like it would be a good supervised learning algorithm to try using. For the Neural Net, we decided to do a 3 hidden layer neural net with 27 nodes in each hidden layer, one for each feature. After building the model we saw results hovering around .8 for most of our metrics in the confusion matrix. 
+
+We beleived that Neural Networks would be a good supervised learning algorithm to use given the number of features in our data set and how Neural Nets create weights between features and nodes to find the nuance of the relationships between features and outputs. We decided to do a 3 hidden layer neural net with 27 nodes in each hidden layer, one for each feature. After building the model we saw results hovering around .8 for most of our metrics in the confusion matrix. 
 
 <p align="center">
-  <img src="KaggleNNclassrep.png">
+  <img src="KaggleNNclassrep.png" width="450">
 </p>
 
-The range we saw made it a bit difficult to get a great read on how the model was performing. So, we built the model 200 with a for loop to try to get an average accuracy for our model. After building the model this way, we saw it performed with about an 80% accuracy overall for the Kaggle dataset.
+The range we saw made it a little difficult to get a great read on how the model was performing. We built the model with a for loop to try to get an average accuracy. After building the model this way we saw it performed with about an 80% accuracy overall for the Kaggle dataset.
 
 <p align="center">
   <img src="KaggleNN.png">
 </p>
 
-With the Hungarian dataset we built a similar model. However, in this dataset we had 32 features instead of 27, so we adjusted our hidden layer size to stay consistent with the earlier model’s building criteria. We also ran the model with the for loop to get a better reading on our accuracy. The model performed similarly to the Kaggle model also being at 80% accuracy.
+With the Hungarian dataset we built a similar model, but in this dataset we had 32 features instead of 27, so we adjusted our hidden layer size to stay consistent with the earlier model’s building criteria. We also ran the model with the for loop to get a better reading on our accuracy. The model performed similarly to the Kaggle model also being at 80% accuracy.
 
 <p align="center">
   <img src="HungNN.png">
@@ -198,7 +201,7 @@ It appears that Logistic Regression outperformed the SGD classifier in all measu
 detecting values of 1, but it also performs noticeably better in recall. With regards to medical risk, it is much better to deal with false positives than false negatives, meaning the greater difference in recall favors Logistic Regression more than the SGD Classifier. Alternatively, measures of accuracy where the correct output is false (0) makes more sense for ensuring that the user is not at risk of heart disease. In that case, it is precision that matters more than recall for the same exact risk concerns. Once again, Logistic Regression performs better than the SGD Classifier this regard.
 
 #### Decision Trees & Random Forests
-Decision tree learning showed promise as one of our targeted supervised learning algorithms due to the many features of our data sets. We believed that this supervised learning algorithm would provide a solid base for prediction, and potentially help determine the most important features in our data sets. The decision tree we made was able to predict results with high success, comparable to previous studies. 
+Decision tree learning showed promise as one of our targeted supervised learning algorithms due to the many features of our data sets. We believed that this supervised learning algorithm would provide a solid base for prediction, and potentially help determine the most important features in our data sets. The decision tree we made was able to predict results with high success, comparable to previous studies. The main hyperparameters for decision trees are the testing size and depth of the tree. The testing-training split chosen was a 60-40 split, however, the depth of the decision trees and random forests remained uncapped, as the data sets utilized by the decision tree algorithm have a small number of data points. With a data set of a larger size, a cap would be placed on the depth of the algorithms to facilitate a faster runtime.
 
 >Decision Tree: Kaggle Data Set
 
@@ -207,7 +210,7 @@ Decision tree learning showed promise as one of our targeted supervised learning
   <img src="kaggle_decision_tree_diagnostics.png" width="350">
 </p>
 
-While, we determined that using a decision tree to classify whether someone has heart disease is an effective method, we also wanted to check if creating a random forest and bootrap aggregating (bagging) would be more effective, as we had learned in lecture. To preserve consistency between the decision tree and random forest, the same train and test split on the Kaggle data set was used. Using the random forest algorithm and bagging did increase the precision and recall compared to the single decision tree, as we had assumed.
+While, we determined that using a decision tree to classify whether someone has heart disease is an effective method, we also wanted to check if creating a random forest and bootrap aggregating (bagging) would be more effective, as we had learned in lecture. Hyperparameters detailed previously were left unchanged, as the data set remained the same, and any other hyperparameters - with the exception of n_estimators, or forest size - were left as the defaults of the RandomForestClassifier class in sklearn. This choice was made because no perceivable difference was determined when they were changed, but the diagnostics improved with a larger forest size. To preserve consistency between the decision tree and random forest, the same train and test split on the kaggle data set was used. Using the random forest algorithm and bagging did increase the precision and recall compared to the single decision tree, as we had hypothesized.
 
 >Random Forest Diagnostics: Kaggle Data Set
 
@@ -215,7 +218,8 @@ While, we determined that using a decision tree to classify whether someone has 
   <img src="kaggle_forest_diagnostics.png" width="350">
 </p>
 
-The Hungary data set unfortunately did not show similar precision and recall for each classifier when the decision tree learning and random forest algorithms were run on it. This discrepancy between the two data sets used is likely due to not determining which features to one-hot encode and not understanding the data pruning the Kaggle authors completed. However, despite the lower precision and recall scores for specific classifiers, the average scores stay consistent with the findings from previous studies. Although, this is more likely due to the fact that the classifier with very good diagnostic scores is a much larger portion of the Hungary data set than the poorly scoring classifier.
+
+The Hungary data set unfortunately did not show similar precision and recall for each classifier when the decision tree learning and random forest algorithms were run on it. This discrepancy between the two data sets used is likely due to not determining which features to one-hot encode and not understanding the data pruning the kaggle authors completed. However, despite the lower precision and recall scores for specific classifiers, the average scores stay consistent with the findings from previous studies. Although, this is likely due to the fact that the classifier with very good diagnostic scores is a much larger portion of the Hungary data set than the poorly scoring classifier.
 
 >Decision Tree: Hungary Data Set
 
@@ -232,6 +236,10 @@ The Hungary data set unfortunately did not show similar precision and recall for
 
 ### Results
 Our measure of success on this project will be the purity of clusters (only for unsupervised learning), as well as precision and recall. The final outcome of our project will be a program that predicts the likelihood that a person has heart disease. Therefore, recall will be an extremely important metric for us, as false negatives could prove to be deadly if not caught. Similarly, we aim to achieve high precision, as false positive results could give people an unecessary scare and introduce much stress. As a group, we have decided that our goal is to achieve a prediction precision and recall of greater than 60% to 65%, and purity of at least 75% for the clusters in our unsupervised algorithms. Previous studies have reported approximately 75% purity and greater. Our overarching goal for this project is to identify the most important, contributing factors to heart disease for the patients in our dataset, and to then apply those findings in a model that can be used on a much larger scale.
+
+We can say that we more than acheived the results we strove for at the start of this project, as we reported greater precision, purity, and recall than we originally predicted. It can also be shown that these types of models would be beneficial to medical personel, such as doctors and nurses, helping them reach a quick, highly reliable diagnosis on such an important health risk to many people. This project proves the usefulness of machine learning in health care and can be expanded upon with the input of doctors to further increase the chances of alerting those at risk earlier than previously. 
+
+To improve this project and projects like it in the future, we suggest...
 
 ### References
 * Detrano R, Janosi A, Steinbrunn W, Pfisterer M, Schmid JJ, Sandhu S, Guppy KH, Lee S, Froelicher V. International application of a new probability algorithm for the diagnosis of coronary artery disease. Am J Cardiol. 1989 Aug 1;64(5):304-10. doi: 10.1016/0002-9149(89)90524-9. PMID: 2756873.
