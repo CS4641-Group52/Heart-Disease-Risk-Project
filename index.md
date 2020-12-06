@@ -139,7 +139,27 @@ Each data set utilized in the supervised learning part of this project had its f
 
 #### Neural Networks
 
-#### Logistic Regression
+#### Logistic Regression & Stochastic Gradient Descent Classifier
+We decided to try out Logistic Regression and a Stochastic Gradient Descent (SGD) Classifier to use as a binary classifier. We originally also wanted to try out Linear Regression, but it simply did not work well as a binary classifier. The performance in early testing was unsatisfactory even after we rounded the results to either 0 or 1.
+
+>Early Testing of Linear Regression, Logistic Regression, and Stochastic Gradient Descent Classifier
+
+<p align="center">
+  <img src="lin_log_sgd_early.jpg">
+</p>
+
+These models were fit based on the Kaggle dataset, where we proceeded to randomly split it into a training set and a testing set. We realized that the performance varied depending on how the dataset was split, so we ran several iterations of splitting the dataset and took the models that performed the greatest for Logistic Regression and
+the SGD Classifier. The scores are defined by the implementation of the scikit-learn API, which we first used as a basic measure of performance. For further analysis, we decided to calculate the precision, recall, and accuracy measures to better evaulate the results.
+
+>Results of Logistic Regression & Stochastic Gradient Descent Classifier
+
+<p align="center">
+  <img src="log_sgd_results.jpg">
+</p>
+
+It appears that Logistic Regression outperformed the SGD classifier in all measures. For the purposes of this project, the measures of accuracy where the correct output is true (1) is much more intuitive for the sake of identifying those at risk of heart disease. Logistic Regression performs only slightly better in the precision of 
+detecting 1s, but it also performs noticeably better in recall. With regards to medical risk, it is much better to deal with false positives than false negatives, meaning the greater difference in recall favors Logistic Regression more than the SGD Classifier. Alternatively, measures of accuracy where the correct output is false (0) makes more 
+sense for ensuring that the user is not at risk of heart disease. In that case, it is precision that matters more than recall for the same exact risk concerns. Once again, Logistic Regression performs better than the SGD Classifier this regard.
 
 #### Decision Trees & Random Forests
 Decision tree learning showed promise as one of our targeted supervised learning algorithms due to the many features of our data sets. We believed that this supervised learning algorithm would provide a solid base for prediction, and potentially help determine the most important features in our data sets. The decision tree we made was able to predict results with high success, comparable to previous studies. 
